@@ -1,0 +1,126 @@
+:root {
+  --color-principal: rgb(49, 0, 61);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.App-content {
+  background-color: var(--color-principal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(15px + 2vmin);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.App-content a {
+  color: white;
+}
+
+.App-content > h2 {
+  text-shadow: 5px 4px 3px black;
+}
+
+
+.links a {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  color: rgb(139, 138, 138);
+}
+
+a {
+  text-decoration: none;
+}
+.Title {
+  cursor: pointer;
+  letter-spacing: 5px;
+  font-family: "fantasy";
+  color: white;
+  font-weight: bold;
+  font-size: 4rem;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 2rem 0;
+  margin-top: 0rem;
+}
+
+.content-form {
+  z-index: 999;
+  margin: 0rem auto;
+  width: 100%;
+}
+
+.content-search {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.content-form i {
+  background-color: white;
+  color: blueviolet;
+  margin-left: -3.5rem;
+}
+
+.search-icon {
+  cursor: pointer;
+  background-color: blueviolet;
+  min-height: 3.2rem;
+  width: 3rem;
+  padding: 0 0rem;
+  font-size: 12px;
+  object-fit: cover;
+  border: none;
+  font-size: 1.8rem;
+  transform: translate(-3rem, -1px);
+  transition: transform 0.2s, filter 0.2s;
+  text-shadow: 2px 2px 1px rgb(88, 87, 87), 3px 3px 10px black;
+}
+.search-icon:hover {
+  transform: translate(-3rem, 2px);
+  color: rgb(88, 88, 88);
+  filter: brightness(0.9);
+}
+
+.input-search {
+  font-size: 1.5rem;
+  height: 1rem;
+  width: 400px;
+  padding: 1rem;
+}
+
+
+.gif-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.subtitle {
+  color: rgb(144, 61, 238);
+  font-size: 1.6rem;
+  font-weight: bold;
+  align-self: flex-start;
+}

@@ -1,0 +1,20 @@
+.list-gifs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem 1rem;
+}
+.list-gifs > * {
+  flex: 1 1 300px;
+}
+.title-list {
+  color: rgb(144, 61, 238);
+  font-size: 1.8rem;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+.section-list-gifs{
+  min-height: 100vh;
+}

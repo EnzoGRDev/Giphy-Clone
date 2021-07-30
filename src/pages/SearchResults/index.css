@@ -1,0 +1,40 @@
+
+
+.btn-next-page{
+  color: white;
+  font-size: .6rem;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  cursor: pointer;
+  margin: 3rem auto;
+  margin-top: 4rem;
+  width: 320px;
+  max-width: 1fr;
+  height: 1.7rem;
+  background-color: blueviolet;
+  border-radius: .4rem;
+  box-shadow: 
+  0 5px 1px rgb(127, 15, 231),
+  0 8px 10px black;
+  transition: all .1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-next-page:hover{
+  background-color: rgb(127, 15, 231);
+  box-shadow: 
+  0 3px 1px rgb(127, 15, 231),
+  0 4px 10px black;
+  transform: translateY(2px);
+}
+
+.btn-next-page:active{
+  background-color: rgb(127, 15, 231);
+  box-shadow: 
+  0 1px 1px rgb(127, 15, 231),
+  0 2px 10px black;
+  transform: translateY(2px); 
+}
+
+.search-results{
+  min-height: 100vh;
+}

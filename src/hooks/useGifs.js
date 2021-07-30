@@ -10,12 +10,13 @@ export default function useGifs({ keyword = null } = {}) {
   const [page, setPage] = useState(INITIAL_PAGE);
   const { gifs, setGifs } = useContext(GifsContext);
 
-  const keywordToUse = keyword
+  let keywordToUse = keyword
     ? keyword
     : localStorage.getItem("lastKeyword")
       ? localStorage.getItem("lastKeyword")
       : "random";
 
+  if (keywordToUse === "null") keywordToUse = "random"
   useEffect(() => {
     setLoading(true);
 

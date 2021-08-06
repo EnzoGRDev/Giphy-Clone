@@ -33,7 +33,7 @@ export default function useGifs({ keyword = null } = {}) {
 
     setLoadingNextPage(true);
 
-    getGifs({ page: page, keyword: keywordToUse, limit: 25 }).then(
+    getGifs({ page: page, keyword: keywordToUse, limit: 10 }).then(
       (nextGifs) => {
         setGifs((prevGifs) => prevGifs.concat(nextGifs));
         setLoadingNextPage(false);

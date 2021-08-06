@@ -8,8 +8,8 @@ export default function Categories({ trends }) {
       <p className="subtitle">Más Buscados</p>
       <ul className="links">
         {trends.map((option) => (
-          <li>
-            <Link key={option} to={`/search/${option}`}>
+          <li key={option}>
+            <Link to={`/search/${option}`}>
               {" "}
               {option}{" "}
             </Link>

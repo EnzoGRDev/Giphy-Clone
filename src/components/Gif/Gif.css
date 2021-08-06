@@ -1,27 +1,29 @@
 .Gif {
+  --color-subtitles-and-titles: #0CECDD;
   cursor: pointer;
-  /* border-radius: 1rem; */
   margin: auto;
-  height: 100%;
+  height: 400px;
   overflow: hidden;
   max-height: 428px;
-  min-height: 350px;
+  min-height: 200px;
+  min-width: 100px;
   max-width: 376px;
+  transition: box-shadow 40ms ;
   box-shadow:
-    3px -4px 0 blueviolet,
-    -3px -4px 0 blueviolet,
-    3px 4px 0 blueviolet, 
-    -3px 4px 0 blueviolet,
+    3px -4px 0 var(--color-subtitles-and-titles),
+    -3px -4px 0 var(--color-subtitles-and-titles),
+    3px 4px 0 var(--color-subtitles-and-titles), 
+    -3px 4px 0 var(--color-subtitles-and-titles),
       3px 7px 4px rgba(8, 2, 61, 0.7),
       -3px 7px 4px rgba(8, 2, 61, 0.7),
-        2px 10px 0 blueviolet,
-        -2px 10px 0 blueviolet,
+        2px 10px 0 var(--color-subtitles-and-titles),
+        -2px 10px 0 var(--color-subtitles-and-titles),
           2px 14px 4px rgba(8, 2, 61, 0.7),
           -2px 14px 4px rgba(58, 57, 66, 0.7),
-            1px 18px 0 blueviolet,
-            -1px 18px 0 blueviolet,
-              2px 24px 6px black,
-              2px 24px 6px black;
+            1px 18px 0 var(--color-subtitles-and-titles),
+            -1px 18px 0 var(--color-subtitles-and-titles),
+              2px 24px 6px rgba(0, 0, 0, 0.219),
+              2px 24px 6px rgba(0, 0, 0, 0.219);
 
 }
 
@@ -58,4 +60,25 @@
 }
 .Gif:hover img{
   transform: scale(1.5);
+}
+
+.Gif:hover{
+  box-shadow:
+  3px -4px 0 var(--color-subtitles-and-titles),
+  -3px -4px 0 var(--color-subtitles-and-titles),
+
+  3px 4px 0 var(--color-subtitles-and-titles), 
+  -3px 4px 0 var(--color-subtitles-and-titles),
+    3px 7px 4px rgba(8, 2, 61, 0.7),
+    -3px 7px 4px rgba(8, 2, 61, 0.7),
+
+      2px 8px 0 var(--color-subtitles-and-titles),
+      -2px 8px 0 var(--color-subtitles-and-titles),
+        2px 12px 4px rgba(8, 2, 61, 0.7),
+        -2px 12px 4px rgba(58, 57, 66, 0.7),
+
+          1px 14px 0 var(--color-subtitles-and-titles),
+          -1px 14px 0 var(--color-subtitles-and-titles),
+            2px 20px 6px rgba(0, 0, 0, 0.219),
+            2px 20px 6px rgba(0, 0, 0, 0.219);
 }

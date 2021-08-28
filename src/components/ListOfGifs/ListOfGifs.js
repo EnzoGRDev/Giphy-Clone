@@ -4,7 +4,7 @@ export default function ListOfGifs({ gifs, name }) {
   return (
     <section className="section-list-gifs">
       {name !== undefined ? (
-        <h2 className="title-list"> Búsqueda : {decodeURI(name)}</h2>
+        <h2 className="subtitle title-list"> Búsqueda : {decodeURI(name)}</h2>
       ) : null}
       <article className="list-gifs">
         {gifs

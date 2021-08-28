@@ -7,31 +7,33 @@ import useNearScreen from "hooks/useNearScreen";
 import throttle from "just-throttle";
 
 export default function SearchResults({ params }) {
-  const { keyword } = params;
-  const { loading, gifs, setPage } = useGifs({ keyword });
+  const { loading, gifs, setPage, loadingNextPage } = useGifs({ keyword : params.keyword });
   const externalRef = useRef()
   const {isNearScreen} = useNearScreen({
-    distance:"100px",
+    distance:"350px",
     externalRef: loading ? null : externalRef,
     once: false
   })
   
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+    return null
+  },[])
   
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const throttleHandleNextPage = useCallback(throttle(() => setPage((page) => page + 1), 1000),[])
-  
-  console.log(isNearScreen)
+  const throttleHandleNextPage = useCallback(
+    throttle(() => setPage((page) => page + 1), 200)
+  ,[setPage])
+
   useEffect(() => {
     if (isNearScreen) throttleHandleNextPage()
   },[isNearScreen, throttleHandleNextPage]);
 
-  return<section className="search-results">
-      {loading 
-      ? <Spinner /> 
-      : <>
-        <ListOfGifs name={keyword} gifs={gifs} />
-        <div id="visor" ref={externalRef}></div>
+  return(loading 
+        ? <Spinner /> 
+        : <>
+        <ListOfGifs name={params.keyword} gifs={gifs} />
+        {loadingNextPage ? <><br /><br/> <Spinner/></> : null }
+        <div id="visor" ref={externalRef}></div> 
         </>
-      }
-    </section>;
+      )
 }

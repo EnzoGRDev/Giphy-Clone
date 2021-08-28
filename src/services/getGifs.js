@@ -8,7 +8,6 @@ export default function getGifs ({limit = 10, keyword = "Morty", page= 0 } = {})
         fetch(apiUrl)
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((json) => {
-                console.log(json.data)
                 const { data } = json
                 const gifs = data.map((el) => {
                     const { id, images, title } = el

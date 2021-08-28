@@ -4,3 +4,5 @@ export const API_TRENDING = `https://api.giphy.com/v1/trending/searches?api_key=
 export const API_URL_GIFS = keyword => `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&offset=0&rating=g&lang=es`
 
 export const API_URL = 'https://api.giphy.com/v1'
+
+export const API_URL_SINGLE_GIF = id => `${API_URL}/gifs/${id}?api_key=${API_KEY}`

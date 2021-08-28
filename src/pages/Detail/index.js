@@ -1,27 +1,21 @@
 import Gif from "components/Gif/Gif";
-import useGlobalgifs from "hooks/useGlobalgifs";
+import useSingleGif from "hooks/useSingleGif";
+import Spinner from "components/Spinner/Spinner";
+import useLocation from "wouter/use-location";
+import { useEffect } from "react";
 
 export default function Detail({params}){
-    const id = params.id
-    const gifs  = useGlobalgifs()
-    const gif = gifs.find( Singlegif => Singlegif.id === id)
-    
-    gif && localStorage.setItem("GifInfo",JSON.stringify(gif))
-    
-    const gifToUse = gif || JSON.parse(localStorage.getItem("GifInfo"))
+  const {gif, isLoading, isError} = useSingleGif(params.id)
+  const [, setLocation] = useLocation()
 
-    console.log(gifToUse)
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+    return null
+  },[])
 
-    const {title, image} = gifToUse
-
-
-    return( 
-        <div className="gif-detail"> { 
-            gifToUse
-            ? <Gif id = { id } key ={ id } title={ title } image={ image } />
-            : <p> {id} </p> 
-        }
-        </div>
-    )
-    
+  if (isError) setLocation("/404")
+  if (isLoading || !gif ) return <> <Spinner/> </>
+  return <div className="gif-detail">
+      <Gif id={params.id} key={params.id} title={gif.title} image={gif.image} />
+    </div>
 }

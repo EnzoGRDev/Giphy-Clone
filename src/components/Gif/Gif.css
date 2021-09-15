@@ -1,13 +1,18 @@
 .Gif {
   --color-subtitles-and-titles: #0CECDD;
+  background-color: var(--color-subtitles-and-titles);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   cursor: pointer;
   margin: auto;
-  height: 400px;
+  min-height: 120px;
+  min-width: 250px;
+  height: 100%;
+  max-height:300px;
+  max-width: 400px;
+
   overflow: hidden;
-  max-height: 428px;
-  min-height: 200px;
-  min-width: 100px;
-  max-width: 376px;
   transition: box-shadow 40ms ;
   box-shadow:
     3px -4px 0 var(--color-subtitles-and-titles),
@@ -27,39 +32,59 @@
 
 }
 
-.Gif img {
+.Gif-link {
+  background-color: var(--color-subtitles-and-titles);
+  display: block;
+  /* background-image: url(); */
   object-fit: cover;
   width: 100%;
-  max-width: 100%;
-  min-height: 430px;
+  height: 100%;
   filter: brightness(0.8);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  transform: translateY(0rem);
 }
 
-.Gif h3 {
-  max-width: 100%;
+.Gif img {
+  min-height: 120px;
+  min-width: 250px;
+  max-height:300px;
+  max-width: 400px;
+}
+
+.Gif__header {
   background: linear-gradient(
     to bottom,
     rgb(255, 255, 255, 0.3),
     rgba(138, 120, 120, 0.1)
   );
-  margin: 0;
-  position: relative;
-  z-index: 1;
-  transform: translateY(-2rem);
-  height: 1.5rem;
-  max-height: 1.5rem;
-  overflow: hidden;
-  top: 0;
-  padding: 0;
-  margin-bottom: -2rem;
-  transition: transform 0.5s;
   font-size: 14px;
+  height: 2rem;
+  overflow: hidden;
+  margin-bottom: -2.4rem;
+  padding: .2rem 0;
+  position: relative;
+  top: 0;
+  z-index: 1;
 }
-.Gif:hover h3 {
-  transform: translateY(0rem);
+.Gif__header > h3{
+  margin: 0;
 }
-.Gif:hover img{
+
+.Gif:hover .Gif-link{
   transform: scale(1.5);
+}
+.Gif__footer{
+  height: 2rem;
+  width: 100%;
+  position: relative;
+  bottom: 2rem;
+  margin:0;
+  margin-top: -2rem;
+  overflow: hidden;
+  z-index: 1;
+  display: inline;
 }
 
 .Gif:hover{

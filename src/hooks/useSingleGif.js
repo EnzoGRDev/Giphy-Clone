@@ -18,10 +18,10 @@ export default function useSingleGif(id){
           setIsLoading(false)  
           localStorage.setItem("GifInfo", JSON.stringify(gifRes))
         })
-          .catch(() => {
-            setIsError(true)
-            setIsLoading(false)
-          })
+        .catch(() => {
+          setIsError(true)
+          setIsLoading(false)
+        })
     }  
       
   },[id, gif])

@@ -1,16 +1,27 @@
-import React from 'react'
+import Fav from 'components/Fav';
+import React, {  useRef } from 'react'
+import getSingleGif from 'services/getSingleGif';
 import { Link } from "wouter";
 import "./Gif.css";
 
-function Gif({id, title, image }) {
-    // console.log(id,title,image) 
+
+function Gif({id, title, image, imageHigh }) {
+  const imgRef = useRef()
+  const handleOnError = () => getSingleGif(id)
+    .then(({image}) => imgRef.current.src = image)
+
   return (
-      <Link to={`/gif/${id}`} className="Gif-link">
-        <div className="Gif">
-          <h3>{ title }</h3>
-          <img src={`${image}`} alt={ title } />
-        </div>
-      </Link>
+        <figure className="Gif">
+          <figcaption className="Gif__header">
+            <h3>{ title }</h3>
+          </figcaption>
+          <Link to={`/gif/${id}`} className="Gif-link" >
+              <img src={imageHigh || image} alt={title} ref={imgRef} loading="lazy" onError={handleOnError}/>
+          </Link>
+          <figcaption className="Gif__footer">
+            <Fav favId={id}/>
+          </figcaption>
+        </figure>
   );
 }
 

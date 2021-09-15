@@ -1,17 +1,19 @@
 import Gif from "../Gif/Gif";
 import 'components/ListOfGifs/ListOfGifs.css'
-export default function ListOfGifs({ gifs, name }) {
+export default function ListOfGifs({ gifs = [], name = "" } = {}) {
   return (
     <section className="section-list-gifs">
-      {name !== undefined ? (
-        <h2 className="subtitle title-list"> Búsqueda : {decodeURI(name)}</h2>
-      ) : null}
+      {name 
+        ? <h2 className="subtitle title-list"> Búsqueda: {name} </h2> 
+        : null
+      }
       <article className="list-gifs">
-        {gifs
-          ? gifs.map(({ id, title, image }) => (
-              <Gif id={id} key={id} title={title} image={image} />
+        {gifs.length > 0
+          ? gifs.map(({ id, title, image, imageHigh }) => (
+              <Gif id={id} key={id} title={title} image={image} imageHigh={imageHigh} />
             ))
-          : "cargando..."}
+          : null
+        }
       </article>
     </section>
   );

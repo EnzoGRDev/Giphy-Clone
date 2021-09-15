@@ -1,0 +1,61 @@
+:root {
+  --color-principal: #C400FF;
+  --color-principal-clarito: #ce2effa4;
+  --color-links: #f8ef76;
+  --color-subtitles-and-titles: #52ff92;
+  --color-other:#710094;
+  --color-cards: #0CECDD;
+}
+
+.form-login{
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+  height: 50vh;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-login > input{
+  width: 50%;
+  padding: .5rem;
+  height: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-other);
+  background-color: rgba(255, 255, 255, 0.171);
+  outline: none;
+  border: 3px solid rgba(255, 255, 255, 0.24);
+}
+
+.form-login > input::placeholder{
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form-login > label{
+  font-size: 1.3rem;
+  transform: translateY(10px);
+}
+
+.form-login > button{
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  background-color: var(--color-other);
+  padding: 3px;
+  width: 4rem;
+  color: var(--color-principal);
+}
+
+.form-login > span{
+  font-size: 1.1rem;
+}
+
+.form-login__link-register{
+  color: var(--color-links);
+  font-weight: 600;
+}

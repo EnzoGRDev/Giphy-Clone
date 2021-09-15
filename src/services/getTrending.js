@@ -6,11 +6,10 @@ const fromApiResponseToGifs = apiResponse => {
 }
 
 export default function getTrendingTerms (){
-
 return(
-    fetch(API_TRENDING)
-        .then((res) => res.ok ? res.json() :Promise.reject(res))
-        .then(fromApiResponseToGifs)
+  fetch(API_TRENDING)
+    .then((res) => res.ok ? res.json() : Promise.reject(res))
+      .then(fromApiResponseToGifs)
         .catch((err) => console.log(err))
 )
 }

@@ -1,0 +1,52 @@
+:root {
+  --color-principal: #C400FF;
+  --color-principal-clarito: #ce2effa4;
+  --color-links: #f8ef76;
+  --color-subtitles-and-titles: #52ff92;
+  --color-other:#710094;
+  --color-cards: #0CECDD;
+}
+
+.form-register{
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+  height: 50vh;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-register > input{
+  width: 50%;
+  padding: .5rem;
+  height: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-other);
+  background-color: rgba(255, 255, 255, 0.171);
+  outline: none;
+  border: 3px solid rgba(255, 255, 255, 0.24);
+}
+
+.form-register > input::placeholder{
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form-register > label{
+  font-size: 1.3rem;
+  transform: translateY(10px);
+}
+
+.form-register > button{
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  background-color: var(--color-other);
+  padding: 3px;
+  color: var(--color-principal);
+}
+

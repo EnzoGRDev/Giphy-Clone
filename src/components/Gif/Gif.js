@@ -5,24 +5,39 @@ import { Link } from "wouter";
 import "./Gif.css";
 
 
-function Gif({id, title, image, imageHigh }) {
+function Gif({id, title, image, imageHigh, idFav }) {
   const imgRef = useRef()
+
   const handleOnError = () => getSingleGif(id)
     .then(({image}) => imgRef.current.src = image)
 
   return (
         <figure className="Gif">
           <figcaption className="Gif__header">
-            <h3>{ title }</h3>
+            <h3>
+              { title }
+            </h3>
           </figcaption>
           <Link to={`/gif/${id}`} className="Gif-link" >
-              <img src={imageHigh || image} alt={title} ref={imgRef} loading="lazy" onError={handleOnError}/>
+              <img 
+                src={imageHigh || image} 
+                alt={title} 
+                ref={imgRef} 
+                loading="lazy" 
+                onError={handleOnError}
+              />
           </Link>
           <figcaption className="Gif__footer">
-            <Fav favId={id}/>
+            <Fav 
+              id= {idFav}
+              gifId= {id} 
+              image_mid= {image} 
+              image_high= {imageHigh} 
+              title= {title} 
+            />
           </figcaption>
         </figure>
-  );
+  )
 }
 
 export default React.memo(Gif)

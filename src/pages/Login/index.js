@@ -7,18 +7,20 @@ export default function Login(){
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [, changeLocation] = useLocation()
-  const {login} = useUser()
+  const {login, isLogged, isError} = useUser()
 
-  const handleUsernameChange = e => setUsername(e.target.value)
-  const handlePasswordChange = e => setPassword(e.target.value)
-  const handleSubmit = e =>{
+  const handleUsernameChange = e=> setUsername(e.target.value)
+  const handlePasswordChange = e=> setPassword(e.target.value)
+  const handleSubmit = e=> {
     e.preventDefault()
     login(username, password)
-    changeLocation("/")
   }
-
+  
+ 
+  if (isLogged)changeLocation("/")
   return (
     <form className="form-login" onSubmit={handleSubmit}>
+      {isError && <h3 >Usuario o contraseña incorrectos</h3>}
       <label htmlFor="username">Username</label>
       <input 
         type="text" 

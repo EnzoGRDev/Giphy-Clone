@@ -18,8 +18,6 @@ export default function useGifs({ keyword = null } = {}) {
 
   if (keywordToUse === "null") keywordToUse = "random"
 
-
-
   useEffect(() => {
     setLoading(true);
 

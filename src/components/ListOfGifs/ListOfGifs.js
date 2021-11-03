@@ -9,8 +9,15 @@ export default function ListOfGifs({ gifs = [], name = "" } = {}) {
       }
       <article className="list-gifs">
         {gifs.length > 0
-          ? gifs.map(({ id, title, image, imageHigh }) => (
-              <Gif id={id} key={id} title={title} image={image} imageHigh={imageHigh} />
+          ? gifs.map(({ idFav, id, title, image, imageHigh }) => (
+              <Gif 
+                idFav={idFav} 
+                id={id} 
+                key={id} 
+                title={title} 
+                image={image} 
+                imageHigh={imageHigh} 
+              />
             ))
           : null
         }

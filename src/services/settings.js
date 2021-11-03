@@ -19,4 +19,4 @@ export const FAVORITES_URL = `${API_GIFFY}/favorites`
 
 export const ADD_FAVORITE = `${FAVORITES_URL}/`
 
-export const DELETE_FAVORITE = (gif_id)=>`${FAVORITES_URL}/${gif_id}`
+export const DELETE_FAVORITE = `${FAVORITES_URL}/`

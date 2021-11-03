@@ -28,7 +28,7 @@ export default function Detail({params}){
         <title>{`Gif de ${gif.title}`}</title>
         <meta name="description" content={` Gif de ${gif.title}`}/>
       </Helmet>
-      <Gif id={params.id} key={params.id} title={gif.title} image={gif.image} />
+      <Gif id={params.id} key={params.id} title={gif.title} image={gif.image} detail={true} />
     </div>
   ) 
 }

@@ -1,11 +1,18 @@
-import { ADD_FAVORITE, DELETE_FAVORITE } from "services/settings"
+import { ADD_FAVORITE, DELETE_FAVORITE, FAVORITES_URL } from "services/settings"
 import useUser from 'hooks/useUser';
 import "./index.css"
-import React, {useEffect, useState} from 'react'
+import React,  { useState, useEffect} from 'react'
+
+//  const findIsFaved = (favorite) => favorite.gif_id === gif
 
 function Fav({id, gifId, image_mid, image_high, title}){
-  const { favorites = [], setFavorites } = useUser()
-  const [isFaved, setIsFaved] = useState(Array.isArray(favorites) ? favorites.find(isId=> isId.gif_id === gifId) : false)
+  const { favorites, setFavorites} = useUser()
+  const [isFaved, setIsFaved] = useState(()=>favorites.find(favorite => favorite.gif_id === gifId)) 
+
+
+  useEffect(()=>{
+    favorites.find(favorite => favorite.gif_id === gifId) ? setIsFaved(true) : setIsFaved(false)
+  }, [favorites])
 
   function handleClick() {
     if (!isFaved) {
@@ -25,6 +32,7 @@ function Fav({id, gifId, image_mid, image_high, title}){
       })
         .then(res => res.json())
         .then(json => {
+          console.log(json)
           setFavorites(json)
           setIsFaved(true)
         })
@@ -39,6 +47,7 @@ function Fav({id, gifId, image_mid, image_high, title}){
       })
         .then(res => res.json())
         .then(json => {
+          console.log(json)
           setFavorites(json)
           setIsFaved(false)
         })

@@ -43,7 +43,7 @@ export default function useUser(){
     user, 
     login, 
     logout, 
-    isLogged, 
+    isLogged,
     favorites,
     setFavorites,
     isError

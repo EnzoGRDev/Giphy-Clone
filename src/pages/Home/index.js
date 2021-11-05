@@ -32,7 +32,7 @@ export default function Home() {
       <SearchForm onSubmit={handleSubmit}/>
       <Favorites />
         <h2 className="subtitle">
-          Última Búsqueda : {decodeURI(keywordToUse)}
+          Última Búsqueda : {decodeURI(keywordToUse) || "random"}
         </h2>
       <ListOfGifs gifs={gifs} />
       <TrendingSearches />

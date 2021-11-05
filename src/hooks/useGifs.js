@@ -23,7 +23,6 @@ export default function useGifs({ keyword = null } = {}) {
 
     getGifs({ keyword: keywordToUse })
       .then((gifs) => {
-        console.log(gifs)
           if (gifs === undefined ) {
             setLoading(true)
           }
@@ -37,7 +36,6 @@ export default function useGifs({ keyword = null } = {}) {
 
   useEffect(() => {
     if (page === INITIAL_PAGE) return;
-    console.log(page)
     setLoadingNextPage(true);
 
     getGifs({ page: page, keyword: keywordToUse, limit: 10 })
@@ -49,7 +47,7 @@ export default function useGifs({ keyword = null } = {}) {
           setLoadingNextPage(false);
         }
       )
-      .catch((err) => setIsError(true));
+      .catch(() => setIsError(true));
   }, [keywordToUse, page, setGifs]);
 
   return { 

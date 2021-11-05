@@ -2,19 +2,20 @@ import { ADD_FAVORITE, DELETE_FAVORITE, FAVORITES_URL } from "services/settings"
 import useUser from 'hooks/useUser';
 import "./index.css"
 import React,  { useState, useEffect} from 'react'
-
+import {useLocation} from 'wouter'
 //  const findIsFaved = (favorite) => favorite.gif_id === gif
 
 function Fav({id, gifId, image_mid, image_high, title}){
-  const { favorites, setFavorites} = useUser()
-  const [isFaved, setIsFaved] = useState(()=>favorites.find(favorite => favorite.gif_id === gifId)) 
-
+  const { favorites, setFavorites, user} = useUser()
+  const [isFaved, setIsFaved] = useState(()=>Array.isArray(favorites) && favorites.find(favorite => favorite.gif_id === gifId)) 
+  const [, setLocation] = useLocation()
 
   useEffect(()=>{
     Array.isArray(favorites) && favorites.find(favorite => favorite.gif_id === gifId) ? setIsFaved(true) : setIsFaved(false)
   }, [favorites])
 
   function handleClick() {
+    if (!user) return setLocation('/login')
     if (!isFaved) {
       fetch(ADD_FAVORITE, {
         method: "POST",

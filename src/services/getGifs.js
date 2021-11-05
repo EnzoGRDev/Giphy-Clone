@@ -2,7 +2,6 @@ import { API_URL, API_KEY } from "./settings"
 
 const fromApiResponse = (json) =>{
   const { data } = json
-  console.log(data)
   const gifs = data
     .map((gif) => {
       const { id, images, title } = gif

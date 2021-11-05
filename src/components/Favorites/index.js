@@ -11,7 +11,6 @@ export default function Favorites(){
     if (!user) setGifs([])
     fetch(`${FAVORITES_URL}/${user}`)
       .then(res => {
-        console.log(res)
         return res.json()
       })
       .then(json => {

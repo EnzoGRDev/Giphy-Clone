@@ -42,7 +42,6 @@ export default function useGifs({ keyword = null } = {}) {
 
     getGifs({ page: page, keyword: keywordToUse, limit: 10 })
       .then( nextGifs => {
-          console.log(nextGifs)
           if (nextGifs === undefined) return setLoadingNextPage(false)
           if (!nextGifs) return setIsError(true)
           

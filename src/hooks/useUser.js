@@ -11,7 +11,6 @@ export default function useUser(){
       .then(resUser=> resUser.json())
       .then(user=> {
         if (user.statusMessage) return setIsError(true)
-        console.log("user logged is",user)
         const {username, favorites, token} = user
         setUser(username)
         setFavorites(favorites)
@@ -34,10 +33,6 @@ export default function useUser(){
     localStorage.setItem("username", "")
     localStorage.setItem("favorites", JSON.stringify([]))
 },[setFavorites, setIsLogged, setUser])
-
-  const addFavorite = ()=>{
-    console.log("hola")
-  }
 
   return {
     user, 

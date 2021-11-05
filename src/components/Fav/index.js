@@ -11,7 +11,7 @@ function Fav({id, gifId, image_mid, image_high, title}){
 
 
   useEffect(()=>{
-    favorites.find(favorite => favorite.gif_id === gifId) ? setIsFaved(true) : setIsFaved(false)
+    Array.isArray(favorites) && favorites.find(favorite => favorite.gif_id === gifId) ? setIsFaved(true) : setIsFaved(false)
   }, [favorites])
 
   function handleClick() {
@@ -32,7 +32,6 @@ function Fav({id, gifId, image_mid, image_high, title}){
       })
         .then(res => res.json())
         .then(json => {
-          console.log(json)
           setFavorites(json)
           setIsFaved(true)
         })
@@ -47,7 +46,6 @@ function Fav({id, gifId, image_mid, image_high, title}){
       })
         .then(res => res.json())
         .then(json => {
-          console.log(json)
           setFavorites(json)
           setIsFaved(false)
         })
